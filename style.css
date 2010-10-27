@@ -1,0 +1,112 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	font-family: 'DejaVu Sans', arial, sans;
+	font-weight: lighter;
+}
+body {
+	background-color: #EEEEEE;
+}
+em {
+	font-weight: lighter;
+	font-style: italic;
+}
+a {
+	text-decoration: none;
+}
+p {
+	font-size: 11pt;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'DejaVu Sans', verdana, arial, sans;
+}
+#header {
+	width: 960px;
+	height: 64px;
+	margin: 0px auto;
+	background-image: url('images/logo.png');
+}
+#menu {
+	float: right;
+	display: block;
+	margin-top: 40px;
+	margin-right: 1em;
+}
+#menu li {
+	display: inline;
+	font-size: 12pt;
+}
+#menu li a {
+	color: silver;
+	border: 0;
+	text-decoration: none;
+}
+#menu li a:hover {
+	color: white;
+}
+#wrapper {
+	width: 958px;
+	margin: 0px auto 1em;
+	background-color: white;
+	border-bottom: 1px solid #DDDDDD;
+	border-left: 1px solid #DDDDDD;
+	border-right: 1px solid #DDDDDD;
+}
+#selector {
+	border: 1px solid #DDDDDD;
+	margin: 1em auto;
+	width: 768px;
+	padding-top: 0.5em;
+	padding-left: 0.5em;
+}
+#presentation {
+	width: 600px;
+	padding: 1em;
+	margin: 1em auto 2em;
+	border: 1px solid #DDDDDD;
+}
+#presentation img {
+	display: block;
+	margin: 0px auto;
+}
+#presentation p {
+	margin-bottom: 1em;
+}
+#add {
+	border: 1px solid #DDDDDD;
+}
+#add ul li {
+	display: inline;
+}
+#home {
+	float: left;
+	display: block;
+	width: 300px;
+	height: 64px;
+}
+.product {
+	float: left;
+	border: 1px solid #DDDDDD;
+	margin-right: 0.5em;
+	margin-bottom: 0.5em;
+	width: 48px;
+	height: 48px;
+}
+.product:hover {
+	border: 1px solid silver;
+}
+.product img {
+	border: none;
+}
+.clearer {
+	clear: both;
+}
+.text{
+	padding: 1em;
+}
+.text p {
+	margin-bottom: 1em;
+}
+.text h2 {
+	margin-bottom: 0.2em;
+}
