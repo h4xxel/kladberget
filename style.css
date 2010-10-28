@@ -1,7 +1,7 @@
 * {
 	margin: 0px;
 	padding: 0px;
-	font-family: 'DejaVu Sans', arial, sans;
+	font-family: 'DejaVu Sans', 'BrandonGrotesqueLightRegular', arial, sans;
 	font-weight: lighter;
 }
 body {
@@ -18,26 +18,32 @@ p {
 	font-size: 11pt;
 }
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'DejaVu Sans', verdana, arial, sans;
+	font-family: 'DejaVu Sans',	'BrandonGrotesqueLightRegular', verdana, arial, sans;
+}
+th {
+	border-bottom: 1px solid #EEEEEE;
+	padding-right: 1em;
 }
 #header {
+	position: relative;
 	width: 960px;
 	height: 64px;
 	margin: 0px auto;
-	background-image: url('images/logo.png');
+	background-image: url('images/logo-orange.png');
 }
 #menu {
 	float: right;
 	display: block;
-	margin-top: 40px;
-	margin-right: 1em;
+	position: absolute;
+	bottom: 0px;
+	right: 1em;
 }
 #menu li {
 	display: inline;
 	font-size: 12pt;
 }
 #menu li a {
-	color: silver;
+	color: #DDDDDD;
 	border: 0;
 	text-decoration: none;
 }
@@ -74,15 +80,51 @@ h1, h2, h3, h4, h5, h6 {
 }
 #add {
 	border: 1px solid #DDDDDD;
+	padding: 0.2em;
 }
 #add ul li {
 	display: inline;
+}
+#add input[type="text"] {
+	width: 64px;
+	border: 1px solid #DDDDDD;
+	background-color: white;
+}
+#add select {
+	width: 64px;
+	border: 1px solid #DDDDDD;
+	background-color: white;
+}
+#add input[type="submit"] {
+	border: 1px solid #DDDDDD;
+	background-color: #EEEEEE;
+	cursor: pointer;
+	float: right;
+}
+#add input[type="submit"]:hover {
+	border: 1px solid silver;
 }
 #home {
 	float: left;
 	display: block;
 	width: 300px;
 	height: 64px;
+}
+#quickbasket {
+	position: absolute;
+	right: 1em;
+	top: 4px;
+}
+#quickbasket {
+	font-size: 12pt;
+}
+#quickbasket p a {
+	color: #DDDDDD;
+	border: 0;
+	text-decoration: none;
+}
+#quickbasket p a:hover {
+	color: white;
 }
 .product {
 	float: left;
