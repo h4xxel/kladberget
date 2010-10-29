@@ -78,6 +78,9 @@ th {
 #presentation p {
 	margin-bottom: 1em;
 }
+#presentation h3, .total {
+	color: red;
+}
 #add {
 	border: 1px solid #DDDDDD;
 	padding: 0.2em;

@@ -4,7 +4,17 @@ session_start();
 if(!isset($_SESSION["basket"])) {
 	$_SESSION["basket"]=array();
 }
+$mysql_link=mysql_connect($db_host,$db_username,$db_password);
+if(!$mysql_link) {
+	die("Error: ".mysql_error());
+}
+$mysql_db=mysql_select_db($db_name,$mysql_link);
+if(!$mysql_db) {
+	die("Error: ".mysql_error());
+}
 function display_basket() {
+	global $mysql_link;
+	$sum=0;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
@@ -28,11 +38,12 @@ function display_basket() {
 		<div id="wrapper">
 			<div class="text">
 				<h1>Your shopping basket</h1>
-				<?if(count($_SESSION["basket"])) {?><p><a href="basket.php?action=clear">Clear basket</a></p>
+				<?if(count($_SESSION["basket"])) {?><p><a href="basket.php?action=clear">Empty basket</a></p>
 				<table>
-					<tr><th>&nbsp;</th><th>ID</th><th>Amount</th><th>Size</th><th>Color</th></tr>
-					<?foreach($_SESSION["basket"] as $i => $a) {echo "<tr><td>".'<a href="?id='.$a["id"].'" class="product"><img src="images/thumbnails/'.$a["id"].'.jpg" alt="'.$a["id"].'" /></a>'.'</td><td><a href="catalogue.php?id='.$a["id"].'">'.$a["id"].'</a></td><td>'.$a["amount"]."</td><td>".$a["size"]."</td><td>".$a["color"]."</td></tr>";}?>
-				</table><?}else{echo "<p>Your shopping basket is empty!</p>";}?>
+					<tr><th>&nbsp;</th><th>Name</th><th>Amount</th><th>Size</th><th>Color</th><th>Part price</th><th>Total</th></tr>
+					<?foreach($_SESSION["basket"] as $i => $a) {$mysql_query=sprintf("SELECT * FROM `items` WHERE `id`=%s",$a["id"]); $mysql_result=mysql_query($mysql_query,$mysql_link); $r=mysql_fetch_assoc($mysql_result);echo "<tr><td>".'<a href="?id='.$a["id"].'" class="product"><img src="images/thumbnails/'.$a["id"].'.jpg" alt="'.$a["id"].'" /></a>'.'</td><td><a href="catalogue.php?id='.$a["id"].'">'.$r["name"].'</a></td><td>'.$a["amount"]."</td><td>".$a["size"]."</td><td>".$a["color"].'</td><td>$'.number_format($r["price"],$decimals=2).'</td><td class="total">$'.number_format($r["price"]*$a["amount"],$decimals=2).'</td></tr>'; $sum+=($r["price"]*$a["amount"]);}?>
+				</table>
+				<h2 class="total">Total: $<?echo number_format($sum,$decimals=2);?></h2><?}else{echo "<p>Your shopping basket is empty!</p>";}?>
 			</div>	
 		</div>
 	</body>
