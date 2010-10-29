@@ -28,6 +28,7 @@ if(!isset($_SESSION["basket"])) {
 			<div class="text">
 				<h1>Home</h1>
 				<p>Welcome to Klädberget!</p>
+				<a href="catalogue.php"><img alt="Catalogue" src="images/animation.gif" /></a>
 			</div>	
 		</div>
 	</body>
