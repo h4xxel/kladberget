@@ -21,7 +21,7 @@ if(!isset($_SESSION["basket"])) {
 				<li><a href=".">Home</a></li>
 				<li><a href="catalogue.php">Catalogue</a></li>
 				<li><a href="company.php">Company</a></li>
-				<li><a href="mailto:email@kladberget.com">Contact</a></li>
+				<li><a href="contact.php">Contact</a></li>
 			</ul>
 		</div>
 		<div id="wrapper">

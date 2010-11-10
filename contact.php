@@ -26,9 +26,21 @@ if(!isset($_SESSION["basket"])) {
 		</div>
 		<div id="wrapper">
 			<div class="text">
-				<h1>Home</h1>
-				<p>Welcome to Klädberget!</p>
-				<a href="catalogue.php"><img alt="Catalogue" src="images/animation.gif" /></a>
+				<h1>Contact Us</h1>
+				<table>
+					<tr>
+						<td><img src="images/people/arne.jpg" alt="Arne Lack" /></td><td><h2>CEO</h2><h3>Arne Lack</h3><a href="mailto:arne.lack@kladberget.com">Mail</a></td>
+					</tr>
+					<tr>
+						<td><img src="images/people/olof.jpg" alt="Olof Mastorsson" /></td><td><h2>Sales Manager</h2><h3>Olof Mastorsson</h3><a href="mailto:olof.mastorsson@kladberget.com">Mail</a></td>
+					</tr>
+					<tr>
+						<td><img src="images/people/walter.jpg" alt="Walter Glassberg" /></td><td><h2>Senior Salesman</h2><h3>Walter Glassberg</h3><a href="mailto:walter.glassberg@kladberget.com">Mail</a></td>
+					</tr>
+					<tr>
+						<td><img src="images/people/monika.jpg" alt="Monika Ohly" /></td><td><h2>Customer Support</h2><h3>Monika Ohly</h3><a href="mailto:monika.ohly@kladberget.com">Mail</a></td>
+					</tr>
+				</table>
 			</div>	
 		</div>
 	</body>
