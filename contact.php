@@ -16,7 +16,7 @@ if(!isset($_SESSION["basket"])) {
 	<body>
 		<div id="header">
 			<a id="home" href="."></a>
-			<div id="quickbasket"><p><a href="basket.php"><?echo count($_SESSION["basket"])?> item<?echo count($_SESSION["basket"])!=1?"s":"";?> in basket</a></p></div>
+			<div id="quickbasket"><p><a <?if(count($_SESSION["basket"])>0){echo('class="highlight"');}?> href="basket.php"><?echo count($_SESSION["basket"])?> item<?echo count($_SESSION["basket"])!=1?"s":"";?> in basket</a></p></div>
 			<ul id="menu">
 				<li><a href=".">Home</a></li>
 				<li><a href="catalogue.php">Catalogue</a></li>
@@ -26,7 +26,10 @@ if(!isset($_SESSION["basket"])) {
 		</div>
 		<div id="wrapper">
 			<div class="text">
-				<h1>Contact Us</h1>
+				<h1><img src="images/h/contact.png" alt="Contact Us" /></h1>
+				<address>Klädberget Ltd. Stockvägen 33a, Stockholm, Sweden</address>
+				<address>Telephone: 08-133337</address>
+				<address><a href="mailto:email@kladberget.com">Email to Klädberget</a></address>
 				<table>
 					<tr>
 						<td><img src="images/people/arne.jpg" alt="Arne Lack" /></td><td><h2>CEO</h2><h3>Arne Lack</h3><a href="mailto:arne.lack@kladberget.com">Mail</a></td>

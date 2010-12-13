@@ -39,7 +39,7 @@ function get_items() {
 	<body>
 		<div id="header">
 			<a id="home" href="."></a>
-			<div id="quickbasket"><p><a href="basket.php"><?echo count($_SESSION["basket"])?> item<?echo count($_SESSION["basket"])!=1?"s":"";?> in basket</a></p></div>
+			<div id="quickbasket"><p><a <?if(count($_SESSION["basket"])>0){echo('class="highlight"');}?> href="basket.php"><?echo count($_SESSION["basket"])?> item<?echo count($_SESSION["basket"])!=1?"s":"";?> in basket</a></p></div>
 			<ul id="menu">
 				<li><a href=".">Home</a></li>
 				<li><a href="catalogue.php">Catalogue</a></li>
@@ -49,7 +49,7 @@ function get_items() {
 		</div>
 		<div id="wrapper">
 			<div class="text">
-				<h1>Catalogue</h1>
+				<h1><img src="images/h/catalogue.png" alt="Catalogue" /></h1>
 				<div id="selector">
 <?get_items();?>
 					<div class="clearer"></div>

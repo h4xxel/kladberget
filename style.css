@@ -1,29 +1,39 @@
 * {
 	margin: 0px;
 	padding: 0px;
-	font-family: 'DejaVu Sans', 'BrandonGrotesqueLightRegular', arial, sans;
+	font-family: arial, sans;
 	font-weight: lighter;
 	border: none;
 }
 body {
 	background-color: #EEEEEE;
 }
-em {
+em, address {
 	font-weight: lighter;
 	font-style: italic;
+}
+address {
+	margin-left: 2em;
 }
 a {
 	text-decoration: none;
 }
-p {
+p, address {
 	font-size: 11pt;
+	font-family: arial, sans;
 }
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'DejaVu Sans',	'BrandonGrotesqueLightRegular', verdana, arial, sans;
+	font-family: verdana, arial, sans;
 }
 th {
 	border-bottom: 1px solid #EEEEEE;
 	padding-right: 1em;
+}
+#animation {
+	margin-left: auto;
+	margin-right: auto;
+	width: 350px;
+	height: 412px;
 }
 #header {
 	position: relative;
@@ -99,13 +109,15 @@ th {
 	border: 1px solid #DDDDDD;
 	background-color: white;
 }
-#add input[type="submit"] {
+#add input[type="submit"], .remove form input, #checkout {
 	border: 1px solid #DDDDDD;
 	background-color: #EEEEEE;
 	cursor: pointer;
+}
+#add input[type="submit"] {
 	float: right;
 }
-#add input[type="submit"]:hover {
+#add input[type="submit"]:hover, .remove form input:hover, #checkout:hover {
 	border: 1px solid silver;
 }
 #home {
@@ -129,6 +141,9 @@ th {
 }
 #quickbasket p a:hover {
 	color: white;
+}
+.highlight {
+	color: white !important;
 }
 .product {
 	float: left;
@@ -155,4 +170,8 @@ th {
 }
 .text h2 {
 	margin-bottom: 0.2em;
+}
+.remove {
+	padding-left: 1em;
+	font-size: 80%;
 }

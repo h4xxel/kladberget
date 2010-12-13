@@ -16,7 +16,7 @@ if(!isset($_SESSION["basket"])) {
 	<body>
 		<div id="header">
 			<a id="home" href="."></a>
-			<div id="quickbasket"><p><a href="basket.php"><?echo count($_SESSION["basket"])?> item<?echo count($_SESSION["basket"])!=1?"s":"";?> in basket</a></p></div>
+			<div id="quickbasket"><p><a <?if(count($_SESSION["basket"])>0){echo('class="highlight"');}?> href="basket.php"><?echo count($_SESSION["basket"])?> item<?echo count($_SESSION["basket"])!=1?"s":"";?> in basket</a></p></div>
 			<ul id="menu">
 				<li><a href=".">Home</a></li>
 				<li><a href="catalogue.php">Catalogue</a></li>
@@ -26,9 +26,9 @@ if(!isset($_SESSION["basket"])) {
 		</div>
 		<div id="wrapper">
 			<div class="text">
-				<h1>Home</h1>
-				<p>Welcome to Klädberget!</p>
-				<a href="catalogue.php"><img alt="Catalogue" src="images/animation.gif" /></a>
+				<h1><img src="images/h/home.png" alt="Home" /></h1>
+				<p>Welcome to Klädberget, dear customer! Feel free to browse our <a href="catalogue.php">catalogue</a> for a large collection och high quality clothing.</p>
+				<div id="animation"><a href="catalogue.php"><img alt="Catalogue" src="images/animation.gif" /></a></div>
 			</div>	
 		</div>
 	</body>

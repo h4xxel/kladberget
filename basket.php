@@ -27,7 +27,7 @@ function display_basket() {
 	<body>
 		<div id="header">
 			<a id="home" href="."></a>
-			<div id="quickbasket"><p><a href="basket.php"><?echo count($_SESSION["basket"])?> item<?echo count($_SESSION["basket"])!=1?"s":"";?> in basket</a></p></div>
+			<div id="quickbasket"><p><a <?if(count($_SESSION["basket"])>0){echo('class="highlight"');}?> href="basket.php"><?echo count($_SESSION["basket"])?> item<?echo count($_SESSION["basket"])!=1?"s":"";?> in basket</a></p></div>
 			<ul id="menu">
 				<li><a href=".">Home</a></li>
 				<li><a href="catalogue.php">Catalogue</a></li>
@@ -37,13 +37,15 @@ function display_basket() {
 		</div>
 		<div id="wrapper">
 			<div class="text">
-				<h1>Your shopping basket</h1>
+				<h1><img src="images/h/basket.png" alt="Your shopping basket" /></h1>
 				<?if(count($_SESSION["basket"])) {?><p><a href="basket.php?action=clear">Empty basket</a></p>
 				<table>
-					<tr><th>&nbsp;</th><th>Name</th><th>Amount</th><th>Size</th><th>Color</th><th>Part price</th><th>Total</th></tr>
-					<?foreach($_SESSION["basket"] as $i => $a) {$mysql_query=sprintf("SELECT * FROM `items` WHERE `id`=%s",$a["id"]); $mysql_result=mysql_query($mysql_query,$mysql_link); $r=mysql_fetch_assoc($mysql_result);echo "<tr><td>".'<a href="?id='.$a["id"].'" class="product"><img src="images/thumbnails/'.$a["id"].'.jpg" alt="'.$a["id"].'" /></a>'.'</td><td><a href="catalogue.php?id='.$a["id"].'">'.$r["name"].'</a></td><td>'.$a["amount"]."</td><td>".$a["size"]."</td><td>".$a["color"].'</td><td>$'.number_format($r["price"],$decimals=2).'</td><td class="total">$'.number_format($r["price"]*$a["amount"],$decimals=2).'</td></tr>'; $sum+=($r["price"]*$a["amount"]);}?>
+					<tr><th></th><th>Name</th><th>Amount</th><th>Size</th><th>Color</th><th>Part price</th><th>Total</th><th></th></tr>
+<?foreach($_SESSION["basket"] as $i => $a) {$mysql_query=sprintf("SELECT * FROM `items` WHERE `id`=%s",$a["id"]); $mysql_result=mysql_query($mysql_query,$mysql_link); $r=mysql_fetch_assoc($mysql_result);echo "					<tr><td>".'<a href="?id='.$a["id"].'" class="product"><img src="images/thumbnails/'.$a["id"].'.jpg" alt="'.$a["id"].'" /></a>'.'</td><td><a href="catalogue.php?id='.$a["id"].'">'.$r["name"].'</a></td><td>'.$a["amount"]."</td><td>".$a["size"]."</td><td>".$a["color"].'</td><td>$'.number_format($r["price"],$decimals=2).'</td><td class="total">$'.number_format($r["price"]*$a["amount"],$decimals=2).'</td><td class="remove"><form action="" method="get"><p><input type="hidden" name="action" value="remove" /><input type="hidden" name="id" value="'.$i.'" /><input type="submit" value="Remove" /></p></form></td></tr>'."\n"; $sum+=($r["price"]*$a["amount"]);}?>
 				</table>
-				<h2 class="total">Total: $<?echo number_format($sum,$decimals=2);?></h2><?}else{echo "<p>Your shopping basket is empty!</p>";}?>
+				<h2 class="total">Total: $<?echo number_format($sum,$decimals=2);?></h2>
+				<button id="checkout" type="button" onclick="alert('You cannot check out your items because this site is not for real!!!!!!\n\n(duh..)');">Check Out</button><?}else{echo "<p>Your shopping basket is empty!</p>";}?>
+				
 			</div>	
 		</div>
 	</body>
